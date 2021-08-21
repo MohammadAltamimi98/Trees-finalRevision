@@ -26,23 +26,23 @@ eight.right = ten;
 four.left = seven;
 
 
-let a = new Node(1);
-let b = new Node(2);
-let c = new Node(3);
-let d = new Node(4);
-let e = new Node(5);
-let f = new Node(6);
-let g = new Node(-8);
-let h = new Node(8)
+// let a = new Node(1);
+// let b = new Node(2);
+// let c = new Node(3);
+// let d = new Node(4);
+// let e = new Node(5);
+// let f = new Node(6);
+// let g = new Node(-8);
+// let h = new Node(8)
 
 
-a.left = b;
-a.right = c;
-b.left = d;
-c.right = e;
-c.left = h;
-e.right = f;
-e.left = g;
+// a.left = b;
+// a.right = c;
+// b.left = d;
+// c.right = e;
+// c.left = h;
+// e.right = f;
+// e.left = g;
 
 
 // const one = new Node(1);
@@ -69,7 +69,7 @@ e.left = g;
 
 
 let tree = new BinaryTree(one);
-let tree1 = new BinaryTree(a);
+// let tree1 = new BinaryTree(a);
 // console.log(tree);
 // console.log(tree.preOrder());
 // console.log(tree.inOrder());
@@ -90,4 +90,4 @@ let tree1 = new BinaryTree(a);
 
 
 
-console.log(tree.sameTree(one, a));
+console.log(tree.identical(one, two));

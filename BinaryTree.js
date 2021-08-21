@@ -228,18 +228,19 @@ class BinaryTree {
     return root;
   }
 
-  sameTree(root1, root2) {
-    if ((!root1 && root2) || (root1 && !root2) || (root1 && root2 && root1.value !== root2.value)) {
-      console.log(root1.value, root2.value);
-      return false
-    };
+  identical(p, q) {
+    if (!p && !q) return true;
 
-    if (root1 && root2) {
-      this.sameTree(root1.left, root2.left);
-      this.sameTree(root1.right, root2.right);
-      console.log(root1.value, root2.value);
+    if (!p && q || p && !q || p && q && p.value !== q.value) {
+      console.log(p.value, q.value);
+      return false;
+    }
+    if (p && q) {
+      this.identical(p.left, q.left);
+      this.identical(p.right, q.right);
       return true;
     }
+    // return false;
   }
 
 }
