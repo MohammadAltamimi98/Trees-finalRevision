@@ -213,14 +213,38 @@ class BinaryTree {
       let temp = node.left;
       node.left = node.right;
       node.right = temp;
-
       if (node.left) _traverse(node.left);
       if (node.right) _traverse(node.right);
     }
     _traverse(this.root);
   }
 
+  merge(t1, t2) {
+    console.log(t1, t2);
+    if (!t1 && !t2) return null;
+    let root = new Node((t1 ? t1.value : null) + (t2 ? t2.value : null));
+    root.left = this.merge((t1 ? t1.left : null), (t2 ? t2.left : null));
+    root.right = this.merge((t1 ? t1.right : null), (t2 ? t2.right : null));
+    return root;
+  }
+
+  sameTree(root1, root2) {
+    if ((!root1 && root2) || (root1 && !root2) || (root1 && root2 && root1.value !== root2.value)) {
+      console.log(root1.value, root2.value);
+      return false
+    };
+
+    if (root1 && root2) {
+      this.sameTree(root1.left, root2.left);
+      this.sameTree(root1.right, root2.right);
+      console.log(root1.value, root2.value);
+      return true;
+    }
+  }
+
 }
+
+
 
 
 module.exports = { Node, BinaryTree }
