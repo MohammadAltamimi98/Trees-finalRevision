@@ -243,6 +243,42 @@ class BinaryTree {
     // return false;
   }
 
+  balanced() {
+    if (!this.root) throw new Error('there is no root love!~');
+    let isBalanced = true;
+    const _traverse = (node) => {
+      if (node === null) {
+        return 0;
+      }
+      let leftTraversal = _traverse(node.left);
+      let rightTraversal = _traverse(node.right);
+
+      if (Math.abs(leftTraversal - rightTraversal) > 0) {
+        isBalanced = false;
+      }
+      return Math.max(leftTraversal, rightTraversal) + 1;
+    }
+    _traverse(this.root);
+    return isBalanced;
+  }
+
+  mirror(node) {
+    if (node === null) {
+      return node;
+    }
+    let leftTraversal = this.mirror(node.left);
+    let rightTraversal = this.mirror(node.right);
+
+    if (node.left) {
+      node.left = rightTraversal;
+    }
+    
+    if (node.right) {
+      node.right = leftTraversal;
+    }
+    return node;
+  }
+
 }
 
 

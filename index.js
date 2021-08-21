@@ -90,4 +90,6 @@ let tree = new BinaryTree(one);
 
 
 
-console.log(tree.identical(one, two));
+// console.log(tree.identical(one, two));
+// console.log(tree.balanced());
+console.log(tree.mirror(one));
