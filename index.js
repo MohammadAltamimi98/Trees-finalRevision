@@ -48,3 +48,20 @@ four.left = seven;
 
 
 let tree = new BinaryTree(one);
+// console.log(tree);
+// console.log(tree.preOrder());
+// console.log(tree.inOrder());
+// console.log(tree.postOrder());
+// console.log(tree.getMax()); 
+
+// console.log(tree.getMin());
+
+// console.log(tree.breadthFirst());
+// console.log(tree.fizzbuzzTree());
+// console.log(tree.sumOfOddNums());
+// console.log(tree.sumOfEvenNums());
+// console.log(tree.lonelyNodes());
+// console.log(tree.heightOfTree(one));
+// console.log(tree.leavesNum(one));
+console.log(tree.invert());
+
