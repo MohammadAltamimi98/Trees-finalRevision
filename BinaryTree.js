@@ -397,6 +397,4 @@ class BinarySearchTree extends BinaryTree {
 }
 
 
-
-
 module.exports = { Node, BinaryTree, BinarySearchTree }
