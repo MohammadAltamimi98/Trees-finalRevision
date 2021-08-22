@@ -299,6 +299,33 @@ class BinaryTree {
     return sum;
   }
 
+
+  trimBt(root, L, R) {
+    if (root === null) return root;
+    if (root.value < L) return this.trimBt(root.right, L, R);
+    if (root.value > R) return this.trimBt(root.left, L, R);
+    root.right = this.trimBt(root.right, L, R);
+    root.left = this.trimBt(root.left, L, R);
+    return root;
+  }
+
+  rangeSum(L, R) {
+    if (!this.root) return 0;
+    let sum = 0
+    const _traverse = (node) => {
+      if (node.value > L && node.value < R) {
+        sum = sum + node.value;
+      }
+      if (node.left) _traverse(node.left);
+
+      if (node.right) _traverse(node.right);
+    }
+
+    _traverse(this.root);
+    return sum;
+
+  }
+
 }
 
 

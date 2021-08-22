@@ -70,7 +70,9 @@ e.left = g;
 let tree = new BinaryTree(one);
 
 // console.log(tree.minDepth(one));
-console.log(tree.deepestRootSum());
+// console.log(tree.deepestRootSum());
+console.log(tree.trimBt(one, 2, 7));
+console.log(tree.rangeSum(0, 22));
 // let tree1 = new BinaryTree(a);
 // console.log(tree);
 // console.log(tree.preOrder());
