@@ -26,23 +26,23 @@ eight.right = ten;
 four.left = seven;
 
 
-// let a = new Node(1);
-// let b = new Node(2);
-// let c = new Node(3);
-// let d = new Node(4);
-// let e = new Node(5);
-// let f = new Node(6);
-// let g = new Node(-8);
-// let h = new Node(8)
+let a = new Node(1);
+let b = new Node(2);
+let c = new Node(3);
+let d = new Node(4);
+let e = new Node(5);
+let f = new Node(6);
+let g = new Node(-8);
+let h = new Node(8)
 
 
-// a.left = b;
-// a.right = c;
-// b.left = d;
-// c.right = e;
-// c.left = h;
-// e.right = f;
-// e.left = g;
+a.left = b;
+a.right = c;
+b.left = d;
+c.right = e;
+c.left = h;
+e.right = f;
+e.left = g;
 
 
 // const one = new Node(1);
@@ -67,8 +67,10 @@ four.left = seven;
 // b.left = d;
 // b.right = f;
 
-
 let tree = new BinaryTree(one);
+
+// console.log(tree.minDepth(one));
+console.log(tree.deepestRootSum());
 // let tree1 = new BinaryTree(a);
 // console.log(tree);
 // console.log(tree.preOrder());
@@ -92,4 +94,5 @@ let tree = new BinaryTree(one);
 
 // console.log(tree.identical(one, two));
 // console.log(tree.balanced());
-console.log(tree.mirror(one));
+// console.log(tree.mirror(one));
+

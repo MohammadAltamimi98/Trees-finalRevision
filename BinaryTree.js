@@ -6,7 +6,6 @@ class Node {
   }
 }
 
-
 // input - nothing or root
 // output array of node values;
 class BinaryTree {
@@ -157,7 +156,6 @@ class BinaryTree {
 
   lonelyNodes() {
     let array = [];
-
     if (!this.root) throw new Error('there is no root');
     const _traverse = (node) => {
       if (node.left) {
@@ -197,7 +195,6 @@ class BinaryTree {
     let array = [];
     const _tarverse = (node) => {
       if (!node.left && !node.right) {
-        console.log(node.value);
         array.push(node.value);
       }
       if (node.left) _tarverse(node.left);
@@ -220,7 +217,6 @@ class BinaryTree {
   }
 
   merge(t1, t2) {
-    console.log(t1, t2);
     if (!t1 && !t2) return null;
     let root = new Node((t1 ? t1.value : null) + (t2 ? t2.value : null));
     root.left = this.merge((t1 ? t1.left : null), (t2 ? t2.left : null));
@@ -230,9 +226,7 @@ class BinaryTree {
 
   identical(p, q) {
     if (!p && !q) return true;
-
     if (!p && q || p && !q || p && q && p.value !== q.value) {
-      console.log(p.value, q.value);
       return false;
     }
     if (p && q) {
@@ -240,7 +234,6 @@ class BinaryTree {
       this.identical(p.right, q.right);
       return true;
     }
-    // return false;
   }
 
   balanced() {
@@ -272,11 +265,38 @@ class BinaryTree {
     if (node.left) {
       node.left = rightTraversal;
     }
-    
+
     if (node.right) {
       node.right = leftTraversal;
     }
     return node;
+  }
+
+  minDepth(node) {
+    if (!node) return 0;
+    if (node.left === null && node.right === null) return 1;
+    if (node.left === null) return this.minDepth(node.right) + 1;
+    if (node.right === null) return this.minDepth(node.left) + 1;
+    return Math.min(this.minDepth(node.left), this.minDepth(node.right)) + 1;
+  }
+
+  // define a tarversal
+  // define an empty array queue
+  // push the root to the array
+  // define length of gthe queue
+  deepestRootSum() {
+    if (!this.root) throw new Error('no root!~');
+    let sum = 0;
+    const _traverse = (node) => {
+
+      if (!node.left && !node.right) {
+        sum = sum + node.value;
+      }
+      if (node.left) _traverse(node.left);
+      if (node.right) _traverse(node.right);
+    }
+    _traverse(this.root);
+    return sum;
   }
 
 }
