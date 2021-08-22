@@ -329,6 +329,74 @@ class BinaryTree {
 }
 
 
+class BinarySearchTree extends BinaryTree {
+
+  add(value) {
+    let node = new Node(value);
+    if (this.root === null) {
+      this.root = node;
+    }
+
+    const _traverse = (temp) => {
+      if (temp.value > value) {
+        if (!temp.left) {
+          temp.left = node;
+          return;
+        }
+        _traverse(temp.left);
+      }
+      if (temp.value < value) {
+        if (!temp.right) {
+          temp.right = node;
+          return;
+        }
+        _traverse(temp.right);
+      }
+
+    }
+    _traverse(this.root);
+    return;
+  }
+
+  contains(num) {
+    if (this.root === null) throw new Error('there is no root');
+
+    const _traverse = (node) => {
+      if (node.value > num && node.left) {
+        console.log(node.value);
+        return _traverse(node.left);
+      }
+      if (node.value < num && node.right) {
+        return _traverse(node.right);
+      }
+
+      if (node.value === num) {
+        return true;
+      }
+      else { return false; }
+
+    }
+    return _traverse(this.root);
+  }
+
+  lowestCommonAncestor(root, p, q) {
+    if (!root) return null;
+    if (root.value === p || root.value === q) { return root.value; }
+    let leftTraversal = this.lowestCommonAncestor(root.left, p, q);
+    let rightTraversal = this.lowestCommonAncestor(root.right, p, q);
+
+    if (!leftTraversal) {
+      return rightTraversal;
+    }
+
+    else if (!rightTraversal) {
+      return leftTraversal;
+    }
+    else return root.value;
+  }
+}
 
 
-module.exports = { Node, BinaryTree }
+
+
+module.exports = { Node, BinaryTree, BinarySearchTree }

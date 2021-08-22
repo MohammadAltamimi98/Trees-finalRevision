@@ -1,6 +1,6 @@
 const { Node } = require('./BinaryTree');
 const { BinaryTree } = require('./BinaryTree');
-// const { BinarySearchTree } = require('./BinaryTree');
+const { BinarySearchTree } = require('./BinaryTree');
 
 
 const one = new Node(1);
@@ -68,11 +68,18 @@ e.left = g;
 // b.right = f;
 
 let tree = new BinaryTree(one);
+let s_tree = new BinarySearchTree();
+s_tree.root = one;
+// console.log(s_tree);
 
+// s_tree.add(-5);
+console.log(s_tree.lowestCommonAncestor(one, 6, 10));
+
+// console.log(JSON.stringify(s_tree, null, 4));
 // console.log(tree.minDepth(one));
 // console.log(tree.deepestRootSum());
-console.log(tree.trimBt(one, 2, 7));
-console.log(tree.rangeSum(0, 22));
+// console.log(tree.trimBt(one, 2, 7));
+// console.log(tree.rangeSum(0, 22));
 // let tree1 = new BinaryTree(a);
 // console.log(tree);
 // console.log(tree.preOrder());
